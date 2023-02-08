@@ -1,0 +1,18 @@
+{
+  "name": "electron-app",
+  "version": "1.0.0",
+  "description": "App mostra",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "Massimo Ciaffoni",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^23.0.0"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.3"
+  }
+}
