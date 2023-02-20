@@ -1,13 +1,26 @@
 <!DOCTYPE html>
-<html>
-  <head> </head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Museum Map</title>
+  </head>
   <body>
-    <img src="./controllo.png" alt="Dinosaur" usemap="#workmap">
-
-    <map name="workmap">
-      <area id=1 shape="rect" coords="34,44,270,350"  alt="Computer" />
-      <area shape="rect" coords="290,172,333,250" alt="Phone" style="background-color:#00FFEE;">
-      <area shape="circle" coords="337,300,44" alt="Cup of coffee"  style="background-color:#00FFEE;">
-    </map>
+    <div id="museum-map">
+      <div class="highlight" data-images="node permissioning.png,document notarization.png" data-video="">
+        <div class="marker"></div>
+      </div>
+      <div class="highlight" data-images="" data-video="test.mp4">
+        <div class="marker"></div>
+      </div>
+      <!-- Add more highlight markers as needed -->
+    </div>
+    <div id="lightbox">
+      <div id="content"></div>
+      <button id="close-btn"></button>
+    </div>
+    <script src="index.js"></script>
   </body>
 </html>
