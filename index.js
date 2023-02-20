@@ -5,36 +5,14 @@ var closeBtn = document.getElementById("close-btn");
 var canvas = document.getElementById("museum-map");
 
 
-var startTouchX, startTouchY;
 
-canvas.addEventListener("touchstart", function(event) {
-  event.preventDefault(); // previene lo scrolling della pagina quando si tocca il canvas
-  var touch = event.touches[0]; // ottiene il primo tocco
-  startTouchX = touch.clientX; // memorizza la posizione di partenza sull'asse X
-  startTouchY = touch.clientY; // memorizza la posizione di partenza sull'asse Y
-});
-
-canvas.addEventListener("touchmove", function(event) {
-  event.preventDefault(); // previene lo scrolling della pagina quando si tocca il canvas
-  var touch = event.touches[0]; // ottiene il primo tocco
-  var currentTouchX = touch.clientX; // ottiene la posizione corrente sull'asse X
-  var currentTouchY = touch.clientY; // ottiene la posizione corrente sull'asse Y
-  var deltaTouchX = currentTouchX - startTouchX; // calcola la differenza sull'asse X
-  var deltaTouchY = currentTouchY - startTouchY; // calcola la differenza sull'asse Y
-  var delta = -deltaTouchY / 100; // calcola la direzione dello zoom (in o out)
-  var zoom = canvas.zoom || 1; // ottiene il valore corrente dello zoom o imposta 1 come valore di default
-  zoom += delta; // aggiunge o toglie il valore delta allo zoom corrente
-  zoom = Math.min(4, Math.max(0.1, zoom)); // limita il valore dello zoom a un intervallo tra 0.1 e 4
-  canvas.style.transform = "scale(" + zoom + ")"; // applica la trasformazione di scala al canvas
-  canvas.zoom = zoom; // salva il valore dello zoom corrente nell'elemento canvas
-});
 
 canvas.addEventListener("touchend", function(event) {
   event.preventDefault(); // previene lo scrolling della pagina quando si tocca il canvas
 });
 
 for (var i = 0; i < highlights.length; i++) {
-  highlights[i].addEventListener("pointerdown", function() {
+  highlights[i].addEventListener("touchstart", function() {
     var images = this.getAttribute("data-images").split(",");
     var video = this.getAttribute("data-video");
     currentImageIndex = 0;
@@ -55,7 +33,7 @@ for (var i = 0; i < highlights.length; i++) {
       var previousBtn = document.getElementById("previous");
       var nextBtn = document.getElementById("next");
 
-      previousBtn.addEventListener("pointerdown", function() {
+      previousBtn.addEventListener("touchstart", function() {
         currentImageIndex--;
         if (currentImageIndex < 0) {
           currentImageIndex = images.length - 1;
@@ -63,7 +41,7 @@ for (var i = 0; i < highlights.length; i++) {
         content.querySelector("img").src = images[currentImageIndex];
       });
 
-      nextBtn.addEventListener("pointerdown", function() {
+      nextBtn.addEventListener("touchstart", function() {
         currentImageIndex++;
         if (currentImageIndex >= images.length) {
           currentImageIndex = 0;
@@ -72,7 +50,7 @@ for (var i = 0; i < highlights.length; i++) {
       });
     }
 
-    content.addEventListener("pointerdown", function(event) {
+    content.addEventListener("touchstart", function(event) {
       event.stopPropagation();
     });
 
@@ -81,7 +59,7 @@ for (var i = 0; i < highlights.length; i++) {
 
 }
 
-closeBtn.addEventListener("pointerdown", function() {
+closeBtn.addEventListener("touchstart", function() {
   lightbox.style.display = "none";
   content.innerHTML = "";
 });
