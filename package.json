@@ -5,14 +5,22 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win"
   },
   "author": "Massimo Ciaffoni",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^23.0.0"
+    "electron": "^23.0.0",
+    "electron-builder": "^22.10.3",
+    "electron-drag": "^2.0.0"
   },
   "dependencies": {
-    "leaflet": "^1.9.3"
+    "jquery.panzoom": "^3.2.3",
+    "leaflet": "^1.9.3",
+    "panzoom": "^9.4.3",
+    "win-mouse": "^2.0.1"
   }
 }

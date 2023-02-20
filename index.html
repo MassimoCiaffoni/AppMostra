@@ -8,12 +8,25 @@
     <title>Museum Map</title>
   </head>
   <body>
-    <div id="museum-map">
-      <div class="highlight" data-images="node permissioning.png,document notarization.png" data-video="">
-        <div class="marker"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="jquery.zoom.js"></script>
+    <div id="museum-map" data-zoomable="true">
+      <div class="highlight" data-images="images/registro dichiarazioni detenuti-1.jpg, images/registro dichiarazioni detenuti-2.jpg, images/registro dichiarazioni detenuti-3.jpg
+            , images/registro dichiarazioni detenuti-4.jpg, images/registro dichiarazioni detenuti-5.jpg" data-video="">
+        <div class="marker">
+          <div class="marker-text">REGISTRO DICHIARAZIONI DETENUTI</div>
+        </div>
       </div>
       <div class="highlight" data-images="" data-video="test.mp4">
-        <div class="marker"></div>
+        <div class="marker">
+        </div>
+
+      </div>
+      <div class="highlight" data-images="images/registro punizioni-1.jpg, images/registro punizioni-2.jpg, images/registro punizioni-3.jpg
+            , images/registro punizioni-4.jpg, images/registro punizioni-5.jpg" data-video="">
+        <div class="marker">
+          <div class="marker-text">REGISTRO PUNIZIONI</div>
+        </div>
       </div>
       <!-- Add more highlight markers as needed -->
     </div>

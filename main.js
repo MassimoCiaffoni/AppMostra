@@ -1,4 +1,5 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow} = require("electron");
+
 
 let win;
 
@@ -12,12 +13,19 @@ function createWindow() {
       nodeIntegration: true,
     },
   });
-
+  
   win.loadFile("index.html");
+
+  win.webContents.on('did-finish-load', () => {
+    win.webContents.setZoomFactor(1); 
+  });
+
   win.on("closed", () => {
     win = null;
   });
 }
+
+
 
 app.on("ready", createWindow);
 
