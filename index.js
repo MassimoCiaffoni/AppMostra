@@ -19,7 +19,7 @@ for (var i = 0; i < highlights.length; i++) {
 
     if (video) {
       content.innerHTML = `
-        <video controls>
+        <video autoplay>
           <source src="${video}" type="video/mp4">
         </video>
       `;
@@ -28,7 +28,7 @@ for (var i = 0; i < highlights.length; i++) {
         <img src="${images[currentImageIndex]}" class="lightbox-image">
         <button id="previous" class="previous-button">&lt;</button>
         <button id="next" class="next-button">&gt;</button>
-        `;
+      `;
 
       var previousBtn = document.getElementById("previous");
       var nextBtn = document.getElementById("next");
