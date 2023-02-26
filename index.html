@@ -55,12 +55,19 @@
     
     <div id="lightbox">
         <div id="content"></div>
-        <button id="close-btn"></button>  
+        <button id="close-btn"></button>
     </div>
+    <button id="exit-btn">X</button>
     <script src="index.js"></script>
     <script type="text/javascript" src="zoom-by-ironex.min.js"></script>
     <script type="text/javascript">
     zoom();
+    </script>
+    <script>
+      const exitBtn = document.getElementById('exit-btn');
+      exitBtn.addEventListener('touchstart', () => {
+        window.close();
+      });
     </script>
   </body>
 </html>

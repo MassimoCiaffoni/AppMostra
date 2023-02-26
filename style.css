@@ -36,40 +36,48 @@ body{ height: 100%; width: 100%; background-color: #000000; overflow: hidden;}
     background-color: rgb(0, 0, 0);
     overflow: hidden;
   }
+
+  /* REGISTRO DICHIARAZIONI */
   .highlight {
     position: fixed;
-    top: 51.6%;
-    left: 11.9%;
+    top: 51.6%;  
+    left: 33,7%; /* oriz: 33.7% vert: 11,9%*/
   }
 
+   /* VIDEO */
   .highlight:nth-of-type(2) {
     position: fixed;
-    top: 75.4%;
-    left: 43%;
+    top: 75.4%; /* oriz: 83% vert: 75.4% */
+    left: 43%; /* oriz: 46,8% vert: 43% */
   }
 
+
+/* REGISTRO PUNIZIONI */
   .highlight:nth-of-type(3) {
     position: fixed;
-    top: 16.6%;
-    left: 61.2%;
+    top: 16.6%; /* oriz: 5% vert: 16,6% */
+    left: 61.2%; /* oriz: 54.4% vert: 61,2% */
   }
 
+  /* REGISTRO MATRICOLE */
   .highlight:nth-of-type(4) {
     position: fixed;
     top: 54%;
-    left: 28%;
+    left: 28%; /* oriz: 40% vert: 28% */
   }
 
+  /* GENIO CIVILE */
   .highlight:nth-of-type(5) {
     position: fixed;
-    top: 40%;
-    left: 83%;
+    top: 40%; /* oriz: 37% vert: 40% */
+    left: 83%; /* oriz: 64% vert: 83% */
   }
 
+  /* CONFRONTI*/
   .highlight:nth-of-type(6) {
     position: fixed;
-    top: 75%;
-    left: 12%;
+    top: 75%; /* oriz: 84% vert: 75% */
+    left: 12%; /* oriz: 34% vert: 12% */
   }
   
   
@@ -86,12 +94,13 @@ body{ height: 100%; width: 100%; background-color: #000000; overflow: hidden;}
   .marker-text {
     position: absolute;
     bottom: -30px;
-    left: 80%;
+    left: 100%;
+    top: 100%;
     transform: translateX(-50%);
-    color: rgb(255, 3, 3); /* colore del testo */
-    font-size: 16px;
+    color: rgb(3, 46, 255); /* colore del testo */
+    font-size: 10px;
     background-position: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: cursive;
   }
   
   #lightbox {
@@ -132,8 +141,8 @@ body{ height: 100%; width: 100%; background-color: #000000; overflow: hidden;}
     transform: translateY(-50%);
     background: none;
     border: none;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center;
@@ -148,8 +157,8 @@ body{ height: 100%; width: 100%; background-color: #000000; overflow: hidden;}
     transform: translateY(-50%);
     background: none;
     border: none;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center;
@@ -162,7 +171,6 @@ body{ height: 100%; width: 100%; background-color: #000000; overflow: hidden;}
     top: 10px;
     right: 10px;
     background: none;
-    border: none;
     width: 100px;
     height: 100px;
     background-image: url('back.png');
@@ -170,4 +178,8 @@ body{ height: 100%; width: 100%; background-color: #000000; overflow: hidden;}
     background-repeat: no-repeat;
     cursor: pointer;
   }
-  
+
+  img {
+    transform-origin: top left;
+    transform: translate(0, 0) scale(1);
+  }
