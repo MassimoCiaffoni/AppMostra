@@ -92,7 +92,6 @@ for (var i = 0; i < highlights.length; i++) {
             if (images[currentImageIndex]=='images/registro matricola detenuti-2.jpg'){
               lightboxImage.style.transform = `scale(4) translate(-${offsetX}px, -${offsetY}px)`;
               isZoomed=true
-              lightboxImage.style.transformOrigin=newOrigin
             }
             else{
               lightboxImage.style.transform = `${newScale} translate(-${offsetX}px, -${offsetY}px)`;
