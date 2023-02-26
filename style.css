@@ -41,43 +41,43 @@ body{ height: 100%; width: 100%; background-color: #000000; overflow: hidden;}
   .highlight {
     position: fixed;
     top: 51.6%;  
-    left: 33,7%; /* oriz: 33.7% vert: 11,9%*/
+    left: 33.7%; /* oriz: 33.7% vert: 11,9%*/
   }
 
    /* VIDEO */
   .highlight:nth-of-type(2) {
     position: fixed;
-    top: 75.4%; /* oriz: 83% vert: 75.4% */
-    left: 43%; /* oriz: 46,8% vert: 43% */
+    top: 83%; /* oriz: 83% vert: 75.4% */
+    left: 46.8%; /* oriz: 46,8% vert: 43% */
   }
 
 
 /* REGISTRO PUNIZIONI */
   .highlight:nth-of-type(3) {
     position: fixed;
-    top: 16.6%; /* oriz: 5% vert: 16,6% */
-    left: 61.2%; /* oriz: 54.4% vert: 61,2% */
+    top: 5%; /* oriz: 5% vert: 16,6% */
+    left: 54.4%; /* oriz: 54.4% vert: 61,2% */
   }
 
   /* REGISTRO MATRICOLE */
   .highlight:nth-of-type(4) {
     position: fixed;
     top: 54%;
-    left: 28%; /* oriz: 40% vert: 28% */
+    left: 40%; /* oriz: 40% vert: 28% */
   }
 
   /* GENIO CIVILE */
   .highlight:nth-of-type(5) {
     position: fixed;
-    top: 40%; /* oriz: 37% vert: 40% */
-    left: 83%; /* oriz: 64% vert: 83% */
+    top: 37%; /* oriz: 37% vert: 40% */
+    left: 64%; /* oriz: 64% vert: 83% */
   }
 
-  /* CONFRONTI*/
+  /* CONFRONTI */
   .highlight:nth-of-type(6) {
     position: fixed;
-    top: 75%; /* oriz: 84% vert: 75% */
-    left: 12%; /* oriz: 34% vert: 12% */
+    top: 84%; /* oriz: 84% vert: 75% */
+    left: 34%; /* oriz: 34% vert: 12% */
   }
   
   
@@ -132,6 +132,8 @@ body{ height: 100%; width: 100%; background-color: #000000; overflow: hidden;}
     max-height: 90%;
     max-width: 90%;
     object-fit: contain;
+    transform-origin: center;
+    transform: translate(0, 0) scale(1);
   }
   
   .previous-button {
@@ -177,9 +179,4 @@ body{ height: 100%; width: 100%; background-color: #000000; overflow: hidden;}
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
-  }
-
-  img {
-    transform-origin: top left;
-    transform: translate(0, 0) scale(1);
   }
