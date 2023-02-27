@@ -37,31 +37,43 @@ for (var i = 0; i < highlights.length; i++) {
       let lastTouchStart = 0;
       let isZoomed= false;
       // Store previous touch position
-      let prevTouch = {x: 0, y: 0};
+      let currentPosition = {x: 0, y: 0};
+      touchOrigin = {x: 0, y: 0};
 
       // Add touchmove event listener
       lightboxImage.addEventListener('touchmove', (e) => {
         if (isZoomed) {
-          // Get current touch position
-          const touch = {x: e.touches[0].pageX, y: e.touches[0].pageY};
-          // Get current transform values
-          const transform = window.getComputedStyle(lightboxImage).getPropertyValue('transform');
-          const matrix = transform.match(/^matrix\((.+)\)$/i)[1].split(',').map(parseFloat);
-          const scaleX = matrix[0];
-          const currentX = matrix[4];
-          const currentY = matrix[5];
-          // Calculate movement amount
-          const dx = touch.x - prevTouch.x;
-          const dy = touch.y - prevTouch.y;
-          // Apply new transform values
-          lightboxImage.style.transform = `translate(${currentX + dx}px, ${currentY + dy}px) scale(${scaleX})`;
-          // Update previous touch position
-          prevTouch = touch;
-          console.log(prevTouch)
-          
+         // Add a touchmove event listener to the image to move it  // Get the current touch position
+            var touchX = e.touches[0].clientX;
+            var touchY = e.touches[0].clientY;
+            
+            // Calculate the distance moved since the last touchmove event
+            var deltaX = touchX - touchOrigin.x;
+            var deltaY = touchY - touchOrigin.y;
+            
+            // Set the transform origin to the touch origin
+            var originX = touchOrigin.x - lightboxImage.offsetLeft;
+            var originY = touchOrigin.y - lightboxImage.offsetTop;
+            lightboxImage.style.transformOrigin = originX + 'px ' + originY + 'px';
+            const transform = window.getComputedStyle(lightboxImage).getPropertyValue('transform');
+            const matrix = transform.match(/^matrix\((.+)\)$/i)[1].split(',').map(parseFloat);
+            const scaleX = matrix[0];
+            var translateX = deltaX / scaleX;
+            var translateY = deltaY / scaleX;
+            
+            // Update the image's position based on the touch movement
+            lightboxImage.style.transform = 'translate(' + translateX + 'px, ' + translateY + 'px) scale(' + scaleX + ')';
+
+            // Update the touch origin to the current position
+            touchOrigin.x = touchX;
+            touchOrigin.y = touchY;
+            console.log(touchOrigin)
+            
+            // Update the current position to the new position
+            currentPosition.x = touchX;
+            currentPosition.y = touchY;
         }
       });
-
 
 
       lightboxImage.addEventListener('touchstart', (e) => {
@@ -73,6 +85,8 @@ for (var i = 0; i < highlights.length; i++) {
           const rect = lightboxImage.getBoundingClientRect();
           const x = touch.clientX - rect.left;
           const y = touch.clientY - rect.top;
+          touchOrigin.x = e.touches[0].clientX;
+          touchOrigin.y = e.touches[0].clientY;
           const transform = window.getComputedStyle(lightboxImage).getPropertyValue('transform');
           console.log(transform)
           const matrix = transform.match(/^matrix\((.+)\)$/i)[1].split(',').map(parseFloat);
@@ -91,12 +105,13 @@ for (var i = 0; i < highlights.length; i++) {
             console.log(images[currentImageIndex]);
             if (images[currentImageIndex]=='images/registro matricola detenuti-2.jpg'){
               lightboxImage.style.transform = `scale(4) translate(-${offsetX}px, -${offsetY}px)`;
-              isZoomed=true
+              isZoomed=true;
+              lightboxImage.style.transformOrigin=newOrigin;
             }
             else{
               lightboxImage.style.transform = `${newScale} translate(-${offsetX}px, -${offsetY}px)`;
-              isZoomed=true
-              lightboxImage.style.transformOrigin=newOrigin
+              isZoomed=true;
+              lightboxImage.style.transformOrigin=newOrigin;
             }
           }
           else {
